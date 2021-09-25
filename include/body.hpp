@@ -9,17 +9,22 @@ public:
 	Body(const gv::vect &pos, const float &radius, const float &mass)
 			: _pos(pos), _radius(radius), _mass(mass) {};
 
-	void apply_force(gv::vect &F) { _net_force += F; };
+	const gv::vect &pos() { return _pos; };
 
-	void exhert_force(Body &b);
+	const float &radius() { return _radius; };
 
-	const gv::vect &net_force() { return _net_force; };
+	const float &mass() { return _mass; };
+
+	void apply_force(const gv::vect &force) { _net_force += force; };
+
+	void update();
 
 
 private:
 	gv::vect _pos;
 	float _radius;
 	float _mass;
+	gv::vect _velocity { 0, 0 };
 	gv::vect _net_force { 0, 0 };
 };
 

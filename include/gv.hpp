@@ -1,18 +1,29 @@
 #ifndef GV_HPP
 #define GV_HPP
 
+#include <cmath>
+
 
 namespace gv {
 	inline extern const float G = 6.674E-11f;
 
 	/* frame time in ms */
-	inline extern const float dt = 16;
+	inline extern const float dt = 0.016;
 
 	/* time scale factor for in-simulation time */
 	inline extern const float time_scale = 10E5;
 
+	/* Geometric vector */
 	struct vect {
+		vect() {};
+
 		vect(const float &x, const float &y) : x(x), y(y) {};
+
+		/* Magnitude */
+		float length() { return std::sqrt(x * x + y * y); };
+
+		/* Angle */
+		float angle() { return std::atan(y / x); };
 
 		/* Negate */
 		vect operator-() const { return vect(-x, -y); };
@@ -58,7 +69,7 @@ namespace gv {
 	};
 
 	/* Calculate the force of gravity */
-	inline float gravitate(const float &m1, const float &m2, float &d) {
+	inline float calc_gravity(const float &m1, const float &m2, const float &d) {
 		return G * m1 * m2 / (d * d);
 	};
 
