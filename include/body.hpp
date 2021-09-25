@@ -7,18 +7,20 @@
 class Body {
 public:
 	Body(const gv::vect &pos, const float &radius, const float &mass)
-			: m_pos(pos), m_radius(radius), m_mass(mass) {};
+			: _pos(pos), _radius(radius), _mass(mass) {};
 
-	void apply_force(gv::vect &F) { this->m_net_force += F; };
+	void apply_force(gv::vect &F) { _net_force += F; };
 
-	const gv::vect &net_force(void) { return this->m_net_force; };
+	void exhert_force(Body &b);
+
+	const gv::vect &net_force() { return _net_force; };
 
 
 private:
-	gv::vect m_pos;
-	float m_radius;
-	float m_mass;
-	gv::vect m_net_force = { 0, 0 };
+	gv::vect _pos;
+	float _radius;
+	float _mass;
+	gv::vect _net_force { 0, 0 };
 };
 
 

@@ -15,39 +15,39 @@ namespace gv {
 		vect(const float &x, const float &y) : x(x), y(y) {};
 
 		/* Negate */
-		vect operator-() const { return vect(-this->x, -this->y); };
+		vect operator-() const { return vect(-x, -y); };
 
 		/* Add */
-		vect operator+(const vect &v) const { return vect(this->x + v.x,
-		                                                  this->y + v.y); };
+		vect operator+(const vect &v) const { return vect(x + v.x,
+		                                                  y + v.y); };
 
 		/* Subtract */
-		vect operator-(const vect &v) const { return vect(this->x - v.x,
-		                                                  this->y - v.y); };
+		vect operator-(const vect &v) const { return vect(x - v.x,
+		                                                  y - v.y); };
 
 		/* Multiply by a scalar */
-		vect operator*(const float &s) const { return vect(this->x * s,
-		                                                   this->y * s); };
+		vect operator*(const float &s) const { return vect(x * s,
+		                                                   y * s); };
 
 		/* Divide by a scalar */
-		vect operator/(const float &s) const { return vect(this->x / s,
-		                                                   this->y / s); };
+		vect operator/(const float &s) const { return vect(x / s,
+		                                                   y / s); };
 
 		/* Dot product */
-		float operator*(const vect &v) const { return this->x * v.x
-		                                            + this->y * v.y; };
+		float operator*(const vect &v) const { return x * v.x
+		                                            + y * v.y; };
 
 		/* Subtract from this vector */
-		void operator+=(const vect &v) { this->x += v.x; this->y += v.y; };
+		void operator+=(const vect &v) { x += v.x; y += v.y; };
 
 		/* Subtract from this vector */
-		void operator-=(const vect &v) { this->x -= v.x; this->y -= v.y; };
+		void operator-=(const vect &v) { x -= v.x; y -= v.y; };
 
 		/* Multiply into this vector by a scalar */
-		void operator*=(const float &s) { this->x *= s; this->y *= s; };
+		void operator*=(const float &s) { x *= s; y *= s; };
 
 		/* Divide into this vector by a scalar */
-		void operator/=(const float &s) { this->x /= s; this->y /= s; };
+		void operator/=(const float &s) { x /= s; y /= s; };
 
 		float x, y;
 	};
