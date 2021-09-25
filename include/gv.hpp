@@ -5,6 +5,12 @@
 namespace gv {
 	inline extern const float G = 6.674E-11f;
 
+	/* frame time in ms */
+	inline extern const float dt = 16;
+
+	/* time scale factor for in-simulation time */
+	inline extern const float time_scale = 10E5;
+
 	struct vect {
 		vect(const float &x, const float &y) : x(x), y(y) {};
 
@@ -45,6 +51,17 @@ namespace gv {
 
 		float x, y;
 	};
+
+	/* Multiply by a scalar */
+	inline vect operator*(const float &s, const vect &v) {
+		return vect(v.x * s, v.y * s);
+	};
+
+	/* Calculate the force of gravity */
+	inline float gravitate(const float &m1, const float &m2, float &d) {
+		return G * m1 * m2 / (d * d);
+	};
+
 }
 
 
