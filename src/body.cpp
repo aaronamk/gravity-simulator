@@ -6,7 +6,7 @@ Body::Body(const gv::vect &pos, const float &radius, const float &mass)
 		: _pos(pos), _radius(radius), _mass(mass) {
 	_drawable.setOrigin(_pos.x, _pos.y);
 	_drawable.setRadius(_radius);
-	_drawable.setFillColor(sf::Color::Green);
+	_drawable.setFillColor(sf::Color::White);
 }
 
 
