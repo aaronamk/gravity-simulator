@@ -12,12 +12,20 @@ class UserView {
 public:
 	UserView(std::shared_ptr<Model> model);
 
+	const bool &running() const { return _running; };
+
 	void update();
 
 
 private:
 	std::shared_ptr<Model> _model;
 	std::unique_ptr<sf::RenderWindow> _window;
+	bool _running = true;
+
+	/**
+	 * Respond to events
+	 */
+	void listen(void);
 
 	/**
 	 * Draw the screen.

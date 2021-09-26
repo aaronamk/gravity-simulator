@@ -13,7 +13,7 @@ class Body;
  */
 class Model {
 public:
-	Model();
+	Model() {};
 
 	/**
 	 * Return the list of bodies.
