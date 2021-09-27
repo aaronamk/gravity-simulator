@@ -4,8 +4,8 @@
 
 Body::Body(const gv::vect &pos, const float &radius, const float &mass)
 		: _pos(pos), _radius(radius), _mass(mass) {
-	_drawable.setOrigin(_pos.x, _pos.y);
-	_drawable.setRadius(_radius);
+	_drawable.setRadius(_radius*15);
+	_drawable.setOrigin(_radius*15, _radius*15);
 	_drawable.setFillColor(sf::Color::White);
 }
 

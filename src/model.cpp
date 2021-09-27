@@ -24,10 +24,11 @@ void Model::update() {
 			g_magnitude = gv::calc_gravity(b1->mass(), b2->mass(), dist.length());
 
 			g_angle = dist.angle();
-			b1->apply_force(gv::vect(g_magnitude * std::cos(g_angle),
+			b1->apply_force(-gv::vect(g_magnitude * std::cos(g_angle),
 			                         g_magnitude * std::sin(g_angle)));
-			b2->apply_force(-gv::vect(g_magnitude * std::cos(g_angle),
+			b2->apply_force(gv::vect(g_magnitude * std::cos(g_angle),
 			                          g_magnitude * std::sin(g_angle)));
 		}
+		b1->update();
 	}
 }

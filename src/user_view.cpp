@@ -10,6 +10,10 @@ UserView::UserView(std::shared_ptr<Model> model) : _model(model) {
 	// set window
 	_window = std::make_unique<sf::RenderWindow>
 			(sf::VideoMode(1280, 720, 32), "SPACE", sf::Style::Titlebar | sf::Style::Close);
+	sf::View view = _window->getView();
+	view.setSize(sf::Vector2f(6.4E11, 3.6E11));
+	view.setCenter(0, 0);
+	_window->setView(view);
 }
 
 

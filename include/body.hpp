@@ -20,6 +20,8 @@ public:
 
 	const float &mass() { return _mass; };
 
+	void velocity(const gv::vect &v) { _velocity = v; };
+
 	/**
 	 * Add a force to be applied in the next udpate cycle
 	 */
@@ -31,11 +33,11 @@ public:
 
 
 private:
-	gv::vect _pos;
-	float _radius;
-	float _mass;
-	gv::vect _velocity { 0, 0 };
-	gv::vect _net_force { 0, 0 };
+	gv::vect _pos; // m
+	float _radius; // m
+	float _mass; // kg
+	gv::vect _velocity { 0, 0 }; // m/s
+	gv::vect _net_force { 0, 0 }; // N
 
 	sf::CircleShape _drawable;
 };

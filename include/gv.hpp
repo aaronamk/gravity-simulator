@@ -5,13 +5,14 @@
 
 
 namespace gv {
-	inline extern const float G = 6.674E-11f;
+	/* gravitational constant */
+	inline extern const float G = 6.674E-11;
 
 	/* frame time in ms */
 	inline extern const float dt = 0.016;
 
 	/* time scale factor for in-simulation time */
-	inline extern const float time_scale = 10E5;
+	inline extern const float time_scale = 6E6;
 
 	/* Geometric vector */
 	struct vect {
@@ -23,7 +24,7 @@ namespace gv {
 		float length() { return std::sqrt(x * x + y * y); };
 
 		/* Angle */
-		float angle() { return std::atan(y / x); };
+		float angle() { return std::atan2(y, x); };
 
 		/* Negate */
 		vect operator-() const { return vect(-x, -y); };
